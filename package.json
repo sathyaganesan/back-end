@@ -1,0 +1,39 @@
+{
+  "name": "back-end",
+  "version": "1.0.0",
+  "description": "Recipe",
+  "main": "index.js",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "generate-gitignore": "^0.2.6",
+    "gitignore": "^0.6.0",
+    "helmet": "^4.4.1",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.21.16",
+    "sqlite3": "^5.0.1"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.7"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Build-Week-PT22-Secret-Family-Recipe/back-end.git"
+  },
+  "keywords": [
+    "backend"
+  ],
+  "author": "sathya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Build-Week-PT22-Secret-Family-Recipe/back-end/issues"
+  },
+  "homepage": "https://github.com/Build-Week-PT22-Secret-Family-Recipe/back-end#readme"
+}
