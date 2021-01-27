@@ -3,9 +3,9 @@ const hashedPassword = "$2a$12$gidvflLXiaXpoNrYsLGFe.f2vwJPIERvmb8LP0FgYzeyjeQMp
 
 exports.seed = async function(knex) {
   await knex("users").insert([
-    { id: 1, username: "vicky", password: hashedPassword },
-    { id: 2, username: "Nelson", password: hashedPassword },
-    { id: 3, username: "John", password: hashedPassword },
-    { id: 4, username: "Noah", password: hashedPassword }
+    { id: 1, username: "vicky", password: hashedPassword, role_id: 1 },
+    { id: 2, username: "Nelson", password: hashedPassword, role_id: 1 },
+    { id: 3, username: "John", password: hashedPassword, role_id: 2 },
+    { id: 4, username: "Noah", password: hashedPassword, role_id: 2 }
   ])
 };
