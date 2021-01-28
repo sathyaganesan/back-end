@@ -1,4 +1,3 @@
-
 exports.seed = async function(knex) {
   await knex("recipe_ingredients").insert([
     {recipe_id: 1, ingredients_id: 1, quantity: "2-Cups"},
@@ -12,4 +11,4 @@ exports.seed = async function(knex) {
     {recipe_id: 1, ingredients_id: 9, quantity: "2-tbsp"},
     {recipe_id: 1, ingredients_id: 10, quantity: "2-tsp"},
   ])
-};
+}

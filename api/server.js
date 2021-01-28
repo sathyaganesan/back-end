@@ -4,6 +4,7 @@ const helmet = require("helmet");
 const cookieParser = require("cookie-parser");
 
 const restrict = require("./user/middleware");
+const userRouter = require("./user/router");
 
 const server = express();
 
@@ -20,6 +21,8 @@ server.get("/", async (req, res, next) => {
         next(err);
     }
 });
+
+server.use(userRouter);
 
 server.use((err, req, res, next) => {
     console.log(err);
