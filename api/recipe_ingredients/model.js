@@ -5,9 +5,9 @@ function getIngredientsList(id) {
         .where("recipe_id", id)
         .innerJoin("recipes", "recipe_id", "recipes.id")
         .innerJoin("ingredients", "ingredients_id", "ingredients.id")
-    .select("recipe_id", "recipe.name as Recipe_Name", "ingredients.name as Ingredients_Name", "recipe.instructions as Instruction ")
+    .select("recipe_id", "recipes.name", "ingredients.name")
 }
 
-module.export = {
+module.exports = {
     getIngredientsList,
 }

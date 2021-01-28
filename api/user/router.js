@@ -20,7 +20,7 @@ router.post("/signup", async (req, res, next) => {
         const { username, password } = req.body;
       
         const [user] = await Users.findByUsername(username)
-        console.log(user)
+        console.log("NewUser",user)
         if (user) {
             return res.status(409).json({
                 Message: "Username is already taken"
@@ -44,15 +44,17 @@ router.post("/signup", async (req, res, next) => {
 })
 
 router.post("/login", async (req, res, next) => {
+    console.log("login", req.body);
     try {
         const { username, password } = req.body;
-        const [user] = await Users.findByUsername(username)
+        const user = await Users.findByUsername(username).first()
 
         if (!user) {
             return res.status(401).json({
                 Message: "Invalid User",
             })
         }
+        console.log("password", user);
         const passwordValid = await bcrypt.compare(password, user.password)
         
         if (!passwordValid) {

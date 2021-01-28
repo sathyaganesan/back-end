@@ -11,11 +11,11 @@ function getRecipeById(id) {
 
 function getInstructions(recipe_id) {
     return db("recipes")
-        .where("recipe.id", recipe_id)
-    .select("recipes.id", "recipes.name as Recipe_Name", "recipes.instructions as Instruction")
+        .where("recipes.id", recipe_id)
+    .select("recipes.id", "recipes.category", "recipes.name", "recipes.instruction")
 }
 
-module.export = {
+module.exports = {
     getRecipes,
     getRecipeById,
     getInstructions,
