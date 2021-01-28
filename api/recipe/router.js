@@ -31,6 +31,11 @@ router.get("/recipe/:id", async (req, res, next) => {
 router.get("/recipe/:id/instructions", async (req, res, next) => {
     try {
         const instruction = await Recipe.getInstructions(req.params.id)
+        if (!req.params.id) {
+            res.status(404).json({
+                Message: "Recipe with specific id does not exsist"
+            })
+        }
         res.json(instruction)
     } catch (err) {
         next(err);
