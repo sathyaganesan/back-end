@@ -15,7 +15,7 @@ router.get("/users", async (req, res, next) => {
 })
 
 router.post("/signup", async (req, res, next) => {
-    console.log(req.body);
+    console.log("Request",req.body);
     try {
         const { username, password } = req.body;
       
@@ -24,6 +24,12 @@ router.post("/signup", async (req, res, next) => {
         if (user) {
             return res.status(409).json({
                 Message: "Username is already taken"
+            })
+        }
+
+        if (password == null) {
+            res.status(400).json({
+                Message: "Password is mandatory to register",
             })
         }
 

@@ -3,9 +3,12 @@ const cors = require("cors");
 const helmet = require("helmet");
 const cookieParser = require("cookie-parser");
 
-const restrict = require("./user/middleware");
+// const restrict = require("./user/middleware");
 const userRouter = require("./user/router");
-
+const recipeRouter = require("./recipe/router");
+const ingredientRouter = require("./ingredients/router");
+const instructionRouter = require("./recipe_ingredients/router");
+ 
 const server = express();
 
 server.use(helmet());
@@ -23,6 +26,9 @@ server.get("/", async (req, res, next) => {
 });
 
 server.use(userRouter);
+server.use(recipeRouter);
+server.use(ingredientRouter);
+server.use(instructionRouter);
 
 server.use((err, req, res, next) => {
     console.log(err);

@@ -22,7 +22,7 @@ function findByUsername(username) {
     return db("users")
         .where("users.username", username)
         .innerJoin("roles", "users.role_id", "roles.id")
-        .select("users.id", "users.username as User", "users.password as Password")
+        .select("users.id", "users.username as User", "users.password as Password", "roles.role as Role")
 }
 
 module.exports = {
