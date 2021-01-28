@@ -14,6 +14,7 @@ exports.up = async function(knex) {
 
     await knex.schema.createTable("recipes", (table) => {
         table.increments("id");
+        table.text("category").notNull()
         table.text("name").notNull().unique()
         table.text("instruction").notNull()
     })
@@ -24,9 +25,9 @@ exports.up = async function(knex) {
     })
 
     await knex.schema.createTable("recipe_ingredients", (table) => {
-        table.integer("recipes_id").notNull().references("id").inTable("recipes");
+        table.integer("recipe_id").notNull().references("id").inTable("recipes");
         table.integer("ingredients_id").notNull().references("id").inTable("ingredients")
-        table.primary(["recipes_id", "ingredients_id"])
+        table.primary(["recipe_id", "ingredients_id"])
         table.text("quantity").notNull();
     })
 
@@ -36,6 +37,6 @@ exports.down = async function (knex) {
     await knex.schema.dropTableIfExists("recipe_ingredients")
     await knex.schema.dropTableIfExists("ingredients")
     await knex.schema.dropTableIfExists("recipes");
-    await knex.schema.dropTableIfExists("roles");
     await knex.schema.dropTableIfExists("users");
+    await knex.schema.dropTableIfExists("roles");
 };
